@@ -1,0 +1,18 @@
+each clothing type has it's own entry in the database; each item for sale on the page will have a class based off of these; clicking the buttons at the top hides everything but that type
+
+GENERAL FUNCTIONS:
+    sign up
+    sign in
+    reset password(?)
+    add to basket
+    remove from basket
+    pay
+    send confirmation email to customer and admin
+ADMIN FUNCTIONS:
+    create new admin account
+    add item of clothing
+    delete item of clothing
+    view purchases
+    add clothing type
+    remove clothing type(?)
+    
