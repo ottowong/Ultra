@@ -6,7 +6,42 @@
 		<link rel="stylesheet" type ="text/css" href="style.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
 		<script src="jquery.min.js"></script>
-		<script src="js.js"></script>
+		<script>
+
+		$(document).ready(function () {
+		    $(".allitemsbutton").click(function() {
+			    $(".shirt").show();
+		        $(".hat").show();
+		        $(".hoodie").show();
+		        $(".crewneck").show();
+			});
+		    $(".shirtbutton").click(function() {
+			    $(".shirt").show();
+		        $(".hat").hide();
+		        $(".hoodie").hide();
+		        $(".crewneck").hide();
+			});
+		    $(".hatbutton").click(function() {
+			    $(".shirt").hide();
+		        $(".hat").show();
+		        $(".hoodie").hide();
+		        $(".crewneck").hide();
+			});
+		    $(".hoodiebutton").click(function() {
+			    $(".shirt").hide();
+		        $(".hat").hide();
+		        $(".hoodie").show();
+		        $(".crewneck").hide();
+			});
+		    $(".crewneckbutton").click(function() {
+			    $(".shirt").hide();
+		        $(".hat").hide();
+		        $(".hoodie").hide();
+		        $(".crewneck").show();
+			});
+		});
+
+		</script>
 	</head>
 
 	<body>

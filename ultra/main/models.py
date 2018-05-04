@@ -14,6 +14,8 @@ class User(models.Model):
     country = models.CharField(max_length=200)
     postcode = models.CharField(max_length=200)
     admin = models.BooleanField(default=0)
+    def __str__(self):
+        return self.email
 
 class DeliveryAddress(models.Model):
     firstName = models.CharField(max_length=200)
@@ -26,7 +28,6 @@ class DeliveryAddress(models.Model):
     country = models.CharField(max_length=200)
     postcode = models.CharField(max_length=200)
 
-
 class Order(models.Model):
     userId = models.ForeignKey(User, on_delete=models.CASCADE)
     deliveryAddressId = models.ForeignKey(DeliveryAddress, on_delete=models.CASCADE)
@@ -34,13 +35,18 @@ class Order(models.Model):
 
 class Type(models.Model):
     name = models.CharField(max_length=200)
+    def __str__(self):
+        return self.name
 
 class Product(models.Model):
     typeId = models.ForeignKey(Type, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
+    colour = models.CharField(max_length=200)
     image = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    def __str__(self):
+        return self.name
 
 class OrderItem(models.Model):
     orderId = models.ForeignKey(Order, on_delete=models.CASCADE)
