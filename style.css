@@ -124,18 +124,24 @@ a:hover{
 }
 
 #footer{
-	color:red;
+	color:black;
 	text-align: center;
 	display:block;
 	bottom:0;
 	width:100%;
 	/*height:60px;*/
-	background:#000;
 	margin-top:30px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
 
 #footer a{
-	color:red;
+	color:#828282;
+	transition: color .3s;
+}
+
+#footer a:hover{
+	transition: color .3s;
+	color:#c9c9c9;
+	text-decoration: none;
 }
