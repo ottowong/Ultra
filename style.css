@@ -92,7 +92,6 @@ body{
   opacity: 0;
   transition: .3s ease;
   background-color: #fff;
-  border:1px solid red;
 }
 
 .item:hover .overlay {
