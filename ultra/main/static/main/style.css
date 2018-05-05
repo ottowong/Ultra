@@ -122,6 +122,7 @@ input{
 }
 
 #storecontent{
+	text-align: center;
 	position: block;
 	margin-left: calc(50% - 600px);
 	width:1200px;

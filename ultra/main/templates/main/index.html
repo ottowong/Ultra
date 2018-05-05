@@ -29,12 +29,12 @@
 		<div id="navbar">
 			<a href="/"><img id="logo" src="{% static 'main/images/reddoveULTRA.png' %}"></a>
 			<div id="menu">
-				<a href="/login"><i class="fas fa-user"></i> Login</a>
+				<a href="/login"><i class="fas fa-user"></i> Login/Register</a>
 				<a href="/cart"><i class="fas fa-shopping-cart"></i> 0</a>
 			</div>
 			<br>
 			<br>
-			<div id="nav2"><div class="allitemsbutton button">all items</div> {% for type in typeList %}| <div class="{{ type.name|lower }}button button">{{ type.name|lower }} </div>{% endfor %}</div>
+			<div id="nav2"><div class="allitemsbutton button">all items</div> {% for type in typeList %}| <div class="{{ type.name|lower }}button button">{{ type.name|lower }}s </div>{% endfor %}</div>
 		</div>
 		<div id="storecontent">
 
@@ -44,11 +44,7 @@
 					<img class="itemimage" src="data:image/png;base64,{{ product.1.0.image }}">
 					<div class="overlay">
 						<div class="overlaytext">
-							<b>
-							"{{ product.1.0.name|upper }}" {{ product.0.name|upper }} <br>
-							{{ product.1.0.colour|upper }}<br>
-							</b>
-							&pound;{{ product.1.0.price }}
+							<b>"{{ product.1.0.name|upper }}" {{ product.0.name|upper }}<br>{{ product.1.0.colour|upper }}<br></b>&pound;{{ product.1.0.price }}
 					</div>
 					</div>
 				</div>
