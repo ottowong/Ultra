@@ -16,12 +16,20 @@ def index(request):
         'product2List': product2List,
         'typeList' : typeList,
     }
-    print("TEST: ",product2List[0][1])
-    print(typeList)
     return HttpResponse(template.render(context, request))
 
 def product(request, productId):
-    return HttpResponse("Product "+str(productId))
+    template = loader.get_template('main/product.html')
+    productList = Product.objects.order_by("-pk")[:12]
+    typeList = Type.objects.order_by("-pk")
+    product2List = []
+    for i in range(0,len(productList)):
+        product2List.append([Type.objects.get(pk = productList[i].typeId.pk), productList])
+    context = {
+        'product2List': product2List,
+        'typeList' : typeList,
+    }
+    return HttpResponse(template.render(context,request))
 
 def bob(request):
     template = loader.get_template('main/bob.html')
