@@ -22,3 +22,8 @@ def index(request):
 
 def product(request, productId):
     return HttpResponse("Product "+str(productId))
+
+def bob(request):
+    template = loader.get_template('main/bob.html')
+    context={}
+    return HttpResponse(template.render(context, request))
