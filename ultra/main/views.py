@@ -27,3 +27,28 @@ def bob(request):
     template = loader.get_template('main/bob.html')
     context={}
     return HttpResponse(template.render(context, request))
+
+def login(request):
+    template = loader.get_template("main/login.html")
+    context = {}
+    return HttpResponse(template.render(context,request))
+
+def cart(request):
+    template = loader.get_template("main/cart.html")
+    context = {}
+    return HttpResponse(template.render(context,request))
+
+def contact(request):
+    template = loader.get_template("main/contact.html")
+    context = {}
+    return HttpResponse(template.render(context,request))
+
+def shipping(request):
+    template = loader.get_template("main/shipping.html")
+    context = {}
+    return HttpResponse(template.render(context,request))
+
+def social(request):
+    template = loader.get_template("main/social.html")
+    context = {}
+    return HttpResponse(template.render(context,request))
