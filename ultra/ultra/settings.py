@@ -1,3 +1,4 @@
+# python manage.py collectstatic - when debug = false
 """
 Django settings for ultra project.
 

@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type ="text/css" href="{% static 'main/product.css' %}">
+{% endblock %}
+{% block content %}
+	<div id="content">
+		<div id="itemimg">
+        	<img class="itemimage" src="data:image/png;base64,{{ product.image }}">
+		</div>
+		<div id="iteminfo">
+			<h1>"{{ product.name }}"</h1>
+		</div>
+	</div>
+{% endblock %}
