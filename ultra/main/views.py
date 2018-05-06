@@ -60,3 +60,13 @@ def social(request):
     template = loader.get_template("main/social.html")
     context = {}
     return HttpResponse(template.render(context,request))
+
+def register(request):
+    template = loader.get_template("main/register.html")
+    context = {}
+    return HttpResponse(template.render(context,request))
+
+def logmein(request):
+    template = loader.get_template("main/logmein.html")
+    context = {}
+    return HttpResponse(template.render(context,request))

@@ -1,59 +1,36 @@
+{% extends 'main/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>ULTRA</title>
-		<link rel="shortcut icon" type="image/png" href="{% static 'main/images/crown.ico' %}"/>
-		<link rel="stylesheet" type ="text/css" href="{% static 'main/style.css' %}">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
-		<!-- <script src="{% static 'main/jquery.min.js' %}"></script> -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script>
+{% block head %}
+<link rel="stylesheet" type ="text/css" href="{% static 'main/home.css' %}">
+<script src="{% static 'main/jquery.min.js' %}"></script>
+<script>
+$(document).ready(function () {
+    $(".allitemsbutton").click(function() {{% for type in typeList %}
+	    $(".{{ type.name|lower }}").show();{% endfor %}
+	});
+    {% for type in typeList  %}
+    $(".{{ type.name|lower }}button").click(function() {
+        {% for type2 in typeList  %}
+        $(".{{ type2.name|lower }}").{% if type == type2 %}show{% else %}hide{% endif %}();{% endfor %}
+	});{% endfor %}
+});
+</script>
+{% endblock %}
+{% block content %}
+<div id="nav2"><div class="allitemsbutton button">all items</div> {% for type in typeList %}| <div class="{{ type.name|lower }}button button">{{ type.name|lower }}s </div>{% endfor %}</div>
+	<div id="storecontent">
 
-		$(document).ready(function () {
-		    $(".allitemsbutton").click(function() {{% for type in typeList %}
-			    $(".{{ type.name|lower }}").show();{% endfor %}
-			});
-            {% for type in typeList  %}
-		    $(".{{ type.name|lower }}button").click(function() {
-                {% for type2 in typeList  %}
-                $(".{{ type2.name|lower }}").{% if type == type2 %}show{% else %}hide{% endif %}();{% endfor %}
-			});{% endfor %}
-
-		});
-
-		</script>
-	</head>
-
-	<body>
-		<div id="navbar">
-			<a href="/"><img id="logo" src="{% static 'main/images/reddoveULTRA.png' %}"></a>
-			<div id="menu">
-				<a href="/login"><i class="fas fa-user"></i> Login/Register</a>
-				<a href="/cart"><i class="fas fa-shopping-cart"></i> 0</a>
-			</div>
-			<br>
-			<br>
-			<div id="nav2"><div class="allitemsbutton button">all items</div> {% for type in typeList %}| <div class="{{ type.name|lower }}button button">{{ type.name|lower }}s </div>{% endfor %}</div>
-		</div>
-		<div id="storecontent">
-
-            {% for product in product2List %}
-			<a href="/products/{{ product.1.0.pk }}">
-				<div class="item {{ product.0.name|lower }}">
-					<img class="itemimage" src="data:image/png;base64,{{ product.1.0.image }}">
-					<div class="overlay">
-						<div class="overlaytext">
-							<b>"{{ product.1.0.name|upper }}" {{ product.0.name|upper }}<br>{{ product.1.0.colour|upper }}<br></b>&pound;{{ product.1.0.price }}
-					</div>
-					</div>
+        {% for product in product2List %}
+		<a href="/products/{{ product.1.0.pk }}">
+			<div class="item {{ product.0.name|lower }}">
+				<img class="itemimage" src="data:image/png;base64,{{ product.1.0.image }}">
+				<div class="overlay">
+					<div class="overlaytext">
+						<b>"{{ product.1.0.name|upper }}" {{ product.0.name|upper }}<br>{{ product.1.0.colour|upper }}<br></b>&pound;{{ product.1.0.price }}
 				</div>
-			</a>
-            {% endfor %}
-
-		</div>
-		<div id="footer">
-		<a href="/shipping">shipping</a> | <a href="/contact">contact</a> | <a href="/social">social</a>
-		</div>
-	</body>
-</html>
+				</div>
+			</div>
+		</a>
+        {% endfor %}
+	</div>
+{% endblock %}

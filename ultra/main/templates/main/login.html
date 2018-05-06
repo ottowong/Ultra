@@ -1,28 +1,14 @@
+{% extends 'main/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>ULTRA</title>
-		<link rel="shortcut icon" type="image/png" href="{% static 'main/images/crown.ico' %}"/>
-		<link rel="stylesheet" type ="text/css" href="{% static 'main/style.css' %}">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+{% block head %}
+<link rel="stylesheet" type ="text/css" href="{% static 'main/login.css' %}">
+{% endblock %}
+{% block content %}
 
-	</head>
-
-	<body>
-		<div id="navbar">
-			<a href="/"><img id="logo" src="{% static 'main/images/reddoveULTRA.png' %}"></a>
-			<div id="menu">
-				<a href="/login"><i class="fas fa-user"></i> Login/Register</a>
-				<a href="/cart"><i class="fas fa-shopping-cart"></i> 0</a>
-			</div>
-			<br>
-			<br>
-		</div>
 		<div id="logincontent">
 			<div id="loginleft">
 				<table class="logintable logintableleft">
-					<form>
+					<form action="/logmein" method="post">
 							<tr><td></td><td><h1 id="loginhead">Login</h1></td></tr>
 							<tr><td><span class="loginstuff">email</td><td></span><input type="email"></td></tr>
 							<tr><td><span class="loginstuff">password</td><td></span><input type="password"></td></tr><br>
@@ -33,25 +19,23 @@
 			</div>
 			<div id="loginright">
 				<table class="logintable logintableright">
-					<form>
+					<form action="/register" method="post">
 							<tr><td></td><td><h1 id="loginhead">Register</h1></td></tr>
-							<tr><td><span class="loginstuff">email</td><td></span><input name="email" type="email"></td></tr>
-							<tr><td><span class="loginstuff">password</td><td></span><input name="password" type="password"></td></tr><br>
-							<tr><td><span class="loginstuff">password</td><td></span><input name="password2" type="password"></td></tr><br>
-							<tr><td><span class="loginstuff">Address Line 1</td><td></span><input name="address1" type="text"></td></tr><br>
-							<tr><td><span class="loginstuff">Address Line 2</td><td></span><input name="address2" type="text"></td></tr><br>
-							<tr><td><span class="loginstuff">Address Line 3</td><td></span><input name="address3" type="text"></td></tr><br>
-							<tr><td><span class="loginstuff">State/County</td><td></span><input name="statecounty" type="text"></td></tr><br>
-							<tr><td><span class="loginstuff">City</td><td></span><input name="city" type="text"></td></tr><br>
-							<tr><td><span class="loginstuff">Country</td><td></span><input name="country" type="text"></td></tr><br>
-							<tr><td><span class="loginstuff">Postcode</td><td></span><input name="postcode" type="text"></td></tr><br>
+							<tr><td><span class="loginstuff">email</td><td></span><input required name="email" type="email"></td></tr>
+							<tr><td><span class="loginstuff">password</td><td></span><input required name="password" type="password"></td></tr><br>
+							<tr><td><span class="loginstuff">password</td><td></span><input required name="password2" type="password"></td></tr><br>
+							<tr><td><span class="loginstuff">Address Line 1</td><td></span><input required name="address1" type="text"></td></tr><br>
+							<tr><td><span class="loginstuff">Address Line 2</td><td></span><input required name="address2" type="text"></td></tr><br>
+							<tr><td><span class="loginstuff">Address Line 3</td><td></span><input required name="address3" type="text"></td></tr><br>
+							<tr><td><span class="loginstuff">State/County</td><td></span required><input name="statecounty" type="text"></td></tr><br>
+							<tr><td><span class="loginstuff">City</td><td></span><input required name="city" type="text"></td></tr><br>
+							<tr><td><span class="loginstuff">Country</td><td></span><input required name="country" type="text"></td></tr><br>
+							<tr><td><span class="loginstuff">Postcode</td><td></span><input required name="postcode" type="text"></td></tr><br>
 							<tr><td></td><td><input class="submitbutton" type="submit" value="Submit"></td></tr>
 					</form>
 				</table>
 			</div>
 		</div>
-		<div id="footer">
-		<a href="#">shipping</a> | <a href="#">contact</a> | <a href="#">social</a>
-		</div>
+		{% endblock %}
 	</body>
 </html>
