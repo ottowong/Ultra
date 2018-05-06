@@ -21,28 +21,32 @@
 		</div>
 		<div id="logincontent">
 			<div id="loginleft">
-				<span class="headspan">
-					<h1 id="loginhead">Login</h1>
-				</span>
-				<form>
-					<span class="loginstuff">email</span><br><input type="text"><br>
-						<span class="loginstuff">password</span><br><input type="password"><br><br>
-						</td><td><input class="submitbutton" type="submit" value="Submit"></td></tr>
-				</form>
-				<tr><a href="/passwordreset">forgot password?</a></tr>
+				<table class="logintable logintableleft">
+					<form>
+							<tr><td></td><td><h1 id="loginhead">Login</h1></td></tr>
+							<tr><td><span class="loginstuff">email</td><td></span><input type="email"></td></tr>
+							<tr><td><span class="loginstuff">password</td><td></span><input type="password"></td></tr><br>
+							<tr><td></td><td><input class="submitbutton" type="submit" value="Submit"></td></tr>
+							<tr><td></td><td><a href="/passwordreset">forgot password?</a></td></tr>
+					</form>
 				</table>
 			</div>
 			<div id="loginright">
-				<span class="headspan">
-					<h1 id="loginhead">Register</h1>
-				</span>
-				<form>
-					<span class="loginstuff">email</span><br><input type="text"><br>
-						<span class="loginstuff">password</span><br><input type="password"><br><br>
-						</td><td><input class="submitbutton" type="submit" value="Submit"></td></tr>
-
-				</form>
-
+				<table class="logintable logintableright">
+					<form>
+							<tr><td></td><td><h1 id="loginhead">Register</h1></td></tr>
+							<tr><td><span class="loginstuff">email</td><td></span><input name="email" type="email"></td></tr>
+							<tr><td><span class="loginstuff">password</td><td></span><input name="password" type="password"></td></tr><br>
+							<tr><td><span class="loginstuff">password</td><td></span><input name="password2" type="password"></td></tr><br>
+							<tr><td><span class="loginstuff">Address Line 1</td><td></span><input name="address1" type="text"></td></tr><br>
+							<tr><td><span class="loginstuff">Address Line 2</td><td></span><input name="address2" type="text"></td></tr><br>
+							<tr><td><span class="loginstuff">Address Line 3</td><td></span><input name="address3" type="text"></td></tr><br>
+							<tr><td><span class="loginstuff">State/County</td><td></span><input name="statecounty" type="text"></td></tr><br>
+							<tr><td><span class="loginstuff">City</td><td></span><input name="city" type="text"></td></tr><br>
+							<tr><td><span class="loginstuff">Country</td><td></span><input name="country" type="text"></td></tr><br>
+							<tr><td><span class="loginstuff">Postcode</td><td></span><input name="postcode" type="text"></td></tr><br>
+							<tr><td></td><td><input class="submitbutton" type="submit" value="Submit"></td></tr>
+					</form>
 				</table>
 			</div>
 		</div>

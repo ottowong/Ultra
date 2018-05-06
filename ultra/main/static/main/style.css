@@ -65,13 +65,14 @@ input{
 #logincontent{
 	/* text-align: center; */
 	position: block;
-	margin-left: calc(50% - 300px);
-	width:600px;
+	margin-left: calc(50% - 600px);
+	height:400px;
+	width:1200px;
 	margin-top:60px;
 	overflow: hidden;
 	border:1px solid black;
 	padding-top:50px;
-	padding-bottom:50px;
+	/* padding-bottom:50px; */
 	border-radius: 1000px;
 	background-image: linear-gradient(left, #ff0000 50%, #fff 50%);
 	background-image: -o-linear-gradient(left, #ff0000 50%, #fff 50%);
@@ -80,21 +81,33 @@ input{
 	background-image: -ms-linear-gradient(left, #ff0000 50%, #fff 50%);
 }
 
+.logintable{
+	padding-left:50px;
+}
+
+.logintableright{
+	margin-top:-146px;
+}
+
+.logintableleft{
+	padding-left: 150px;
+}
+
 #loginleft{
-	color:#fff;
-	text-align: center;
+	color:#000;
+	text-align: right;
 	float:left;
 	display: inline-block;
 	width: 50%;
 }
 
 #loginleft a{
-	color:white;
+	color:#000;
 }
 
 #loginright{
-	color:#ff0000;
-	text-align: center;
+	color:#828282;
+	text-align: right;
 	float:left;
 	display: inline-block;
 	width: 50%;
@@ -118,7 +131,7 @@ input{
 }
 
 .submitbutton{
-	width:173px;
+	width:161px;
 }
 
 #storecontent{
