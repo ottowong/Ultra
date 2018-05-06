@@ -1,0 +1,24 @@
+.itemimage{
+	height:300px;
+}
+
+#content{
+	text-align: left;
+	position: block;
+	margin-left: calc(50% - 600px);
+	width:1200px;
+	margin-top:60px;
+	overflow: hidden;
+}
+
+#itemimg{
+	display:inline;
+	width:300px;
+	float:left;
+}
+
+#iteminfo{
+	width:300px;
+	float:left;
+	padding-left: 50px;
+}
