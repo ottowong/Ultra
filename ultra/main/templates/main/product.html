@@ -6,7 +6,7 @@
 {% block content %}
 	<div id="content">
 		<div id="itemimg">
-        	<img class="itemimage" src="data:image/png;base64,{{ product.image }}">
+        	<img class="itemimage" src="{{ product.image.url }}">
 		</div>
 		<div id="iteminfo">
 			<h1>"{{ product.name }}"</h1>

@@ -43,7 +43,7 @@ class Product(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
     colour = models.CharField(max_length=200)
-    image = models.TextField()
+    image = models.FileField(upload_to="images/")
     price = models.DecimalField(max_digits=6, decimal_places=2)
     def __str__(self):
         return self.name
@@ -56,3 +56,5 @@ class OrderItem(models.Model):
 class ProductImage(models.Model):
     productId = models.ForeignKey(Product, on_delete=models.PROTECT)
     image = models.TextField()
+    def __str__(self):
+        return self.productId
