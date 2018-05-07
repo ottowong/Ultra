@@ -29,8 +29,8 @@ class DeliveryAddress(models.Model):
     postcode = models.CharField(max_length=200)
 
 class Order(models.Model):
-    userId = models.ForeignKey(User, on_delete=models.CASCADE)
-    deliveryAddressId = models.ForeignKey(DeliveryAddress, on_delete=models.CASCADE)
+    userId = models.ForeignKey(User, on_delete=models.PROTECT)
+    deliveryAddressId = models.ForeignKey(DeliveryAddress, on_delete=models.PROTECT)
     status = models.IntegerField(default=0)
 
 class Type(models.Model):
@@ -39,7 +39,7 @@ class Type(models.Model):
         return self.name
 
 class Product(models.Model):
-    typeId = models.ForeignKey(Type, on_delete=models.CASCADE)
+    typeId = models.ForeignKey(Type, on_delete=models.PROTECT)
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
     colour = models.CharField(max_length=200)
@@ -49,6 +49,10 @@ class Product(models.Model):
         return self.name
 
 class OrderItem(models.Model):
-    orderId = models.ForeignKey(Order, on_delete=models.CASCADE)
-    productId = models.ForeignKey(Product, on_delete=models.CASCADE)
+    orderId = models.ForeignKey(Order, on_delete=models.PROTECT)
+    productId = models.ForeignKey(Product, on_delete=models.PROTECT)
     quantity = models.IntegerField(default=1)
+
+class ProductImage(models.Model):
+    productId = models.ForeignKey(Product, on_delete=models.PROTECT)
+    image = models.TextField()
