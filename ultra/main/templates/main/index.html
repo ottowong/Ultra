@@ -21,12 +21,12 @@ $(document).ready(function () {
 	<div id="storecontent">
 
         {% for product in product2List %}
-		<a href="/products/{{ product.1.0.pk }}">
-			<div class="item {{ product.0.name|lower }}">
-				<img class="itemimage" src="data:image/png;base64,{{ product.1.0.image }}">
+		<a href="/products/{{ product.1.pk }}">
+			<div class="item {{ product.1.name|lower }}">
+				<img class="itemimage" src="{{ product.1.image.url }}">
 				<div class="overlay">
 					<div class="overlaytext">
-						<b>"{{ product.1.0.name|upper }}" {{ product.0.name|upper }}<br>{{ product.1.0.colour|upper }}<br></b>&pound;{{ product.1.0.price }}
+						<b>"{{ product.1.name|upper }}" {{ product.0.name|upper }}<br>{{ product.1.colour|upper }}<br></b>&pound;{{ product.1.price }}
 				</div>
 				</div>
 			</div>
