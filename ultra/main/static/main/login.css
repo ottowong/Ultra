@@ -1,5 +1,6 @@
 input{
 	text-align: center;
+	width: 156px;
 }
 
 #logincontent{
@@ -10,7 +11,7 @@ input{
 	width:1200px;
 	margin-top:60px;
 	overflow: hidden;
-	border:1px solid black;
+	border:4px solid black;
 	padding-top:50px;
 	/* padding-bottom:50px; */
 	border-radius: 1000px;
@@ -19,6 +20,13 @@ input{
 	background-image: -moz-linear-gradient(left, #ff0000 50%, #fff 50%);
 	background-image: -webkit-linear-gradient(left, #ff0000 50%, #fff 50%);
 	background-image: -ms-linear-gradient(left, #ff0000 50%, #fff 50%);
+}
+
+@media (max-width:1200px) {
+	#logincontent{
+		width:100%;
+		margin-left:0;
+	}
 }
 
 .logintable{
@@ -63,5 +71,5 @@ input{
 }
 
 .submitbutton{
-	width:161px;
+	width:160px;
 }

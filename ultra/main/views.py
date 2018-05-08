@@ -10,8 +10,6 @@ def index(request):
     for i in range(0,len(productList)):
         product2List.append([Type.objects.get(pk = productList[i].typeId.pk), productList[i]])
 
-    print("HELLO")
-    print(product2List)
     context = {
         'product2List': product2List,
         'typeList' : typeList,
