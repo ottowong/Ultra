@@ -7,9 +7,26 @@
 	<div id="content">
 		<div id="itemimg">
         	<img class="itemimage" src="{{ product.image.url }}">
+					<div id="previews">
+
+						<div class="first previewimage">
+							<img src="">
+						</div>
+						<div class="previewimage">
+							<img src="">
+						</div>
+						<div class="previewimage">
+							<img src="">
+						</div>
+						<div class="last previewimage">
+							<img src="">
+						</div>
+
+					</div>
 		</div>
 		<div id="iteminfo">
 			<h1>"{{ product.name }}"</h1>
+			{{ product.description }}
 		</div>
 	</div>
 {% endblock %}

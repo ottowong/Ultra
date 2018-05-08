@@ -12,13 +12,15 @@
 
 	<body>
 		<div id="navbar">
-			<a href="/"><img id="logo" src="{% static 'main/images/reddoveULTRA.png' %}"></a>
+			<div id="logocontainer">
+				<a href="/"><img id="logo" src="{% static 'main/images/reddoveULTRA.png' %}"></a>
+			</div>
 			<div id="menu">
 				<a href="/login"><i class="fas fa-user"></i> Login/Register</a>
 				<a href="/cart"><i class="fas fa-shopping-cart"></i> 0</a>
 			</div>
 		</div>
-		
+
 {% block content %}
 {% endblock %}
 
