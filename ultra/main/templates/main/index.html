@@ -22,7 +22,7 @@ $(document).ready(function () {
 
         {% for product in product2List %}
 		<a href="/products/{{ product.1.pk }}">
-			<div class="item {{ product.1.name|lower }}">
+			<div class="item {{ product.0.name|lower }}">
 				<img class="itemimage" src="{{ product.1.image.url }}">
 				<div class="overlay">
 					<div class="overlaytext">

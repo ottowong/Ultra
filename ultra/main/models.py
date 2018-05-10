@@ -55,6 +55,6 @@ class OrderItem(models.Model):
 
 class ProductImage(models.Model):
     productId = models.ForeignKey(Product, on_delete=models.PROTECT)
-    image = models.TextField()
-    def __str__(self):
-        return self.productId
+    image = models.FileField(upload_to="images/productImages/")
+    # def __str__(self):
+    #     return self.str(productId)

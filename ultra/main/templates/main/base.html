@@ -5,20 +5,22 @@
 		<title>ULTRA</title>
 		<link rel="shortcut icon" type="image/png" href="{% static 'main/images/crown.ico' %}"/>
 		<link rel="stylesheet" type ="text/css" href="{% static 'main/style.css' %}">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="{% static 'main/fontawesome-free-5.0.12/web-fonts-with-css/css/fontawesome-all.css' %}">
 		{% block head %}
 		{% endblock %}
 	</head>
 
 	<body>
 		<div id="navbar">
-			<a href="/"><img id="logo" src="{% static 'main/images/reddoveULTRA.png' %}"></a>
+			<div id="logocontainer">
+				<a href="/"><img id="logo" src="{% static 'main/images/reddoveULTRA.png' %}"></a>
+			</div>
 			<div id="menu">
 				<a href="/login"><i class="fas fa-user"></i> Login/Register</a>
 				<a href="/cart"><i class="fas fa-shopping-cart"></i> 0</a>
 			</div>
 		</div>
-		
+
 {% block content %}
 {% endblock %}
 
