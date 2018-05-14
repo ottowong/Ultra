@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 # Create your views here.
 
-from .models import Product, Type
+from .models import Product, Type, ProductImage
+
+import math
 
 def index(request):
     productList = Product.objects.order_by("-pk")[:12]
@@ -18,8 +20,27 @@ def index(request):
 
 def product(request, productId):
     product = get_object_or_404(Product, pk=productId)
+    images = ProductImage.objects.filter(productId = productId)
+    imageList = []
+    imageList.append(product.image)
+    for i in range(0, images.count()):
+        imageList.append(images[i].image)
+
+    imageList = imageList[::-1]
+
+    imageSet = [[] * 4 for i in range(int(math.ceil( len(imageList) / 4 )))]
+    for i in range(0, math.ceil((len(imageList))/4)):
+        if (len(imageList) >= 3):
+            loops = 4
+        else:
+            loops = (len(imageList) % 4)
+        for j in range(0,loops):
+            newImage = imageList.pop()
+            imageSet[i].append(newImage)
+
     context = {
         'product': product,
+        'imageSet': imageSet,
     }
     return render(request, "main/product.html", context)
 
