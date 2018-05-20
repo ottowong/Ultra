@@ -3,7 +3,14 @@
 {% block head %}
 <link rel="stylesheet" type ="text/css" href="{% static 'main/product.css' %}">
 <script>
-
+{% for list in imageSet %}
+	{% for image in list %}
+		function changeImage{{ forloop.parentloop.counter }}{{ forloop.counter }}()
+		{
+			document.getElementById("previewImage{{ forloop.parentloop.counter }}{{ forloop.counter }}").src="{{ image.url }}"
+		}
+		{% endfor %}
+	{% endfor %}
 </script>
 <style>
 {% for list in imageSet %}
