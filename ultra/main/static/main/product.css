@@ -62,6 +62,7 @@ if at beggining of the list, you can't go back, and if at the end you can't go f
 	float:left;
 	display: block;
 	position: relative;
+	pointer-events: auto;
 }
 
 .nextOverlay {
@@ -99,4 +100,28 @@ if at beggining of the list, you can't go back, and if at the end you can't go f
 .prevOverlay:hover{
 	cursor: pointer;
 	background-color: rgba(255,255,255,1);
+}
+
+.imagechangebutton{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	opacity: 1;
+	background-color: rgba(0,0,0,0);
+	height:72px;
+}
+
+.changeright{
+	width: 50%;
+	margin-left:36px;
+}
+
+.changeleft{
+	width: 50%;
+}
+
+.changeboth{
+	width:100px;
 }

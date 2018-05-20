@@ -18,7 +18,7 @@ $(document).ready(function () {
 
 	{% for list in imageSet %}
 		{% for image in list %}
-	$(".previewImage{{ forloop.parentloop.counter }}{{ forloop.counter }}").click(function(){
+	$(".imagechangebutton{{ forloop.parentloop.counter }}{{ forloop.counter }}").click(function(){
 		$(".itemimage").attr("src", "{{ image.url }}")
 
 	});
@@ -45,9 +45,13 @@ $(document).ready(function () {
 						<div class="{% if image == list.0 %}{% if list != imageSet.0 %}first{% endif %}{% endif %}{% if image == list.3 %}last{% endif %} previewimage previewImage{{ forloop.parentloop.counter }}{{ forloop.counter }}">
 							<img style="height:100%; width:100%;" src="{{ image.url }}">
 							{% if image == list.3 and imageSet|last != list %}
+								<div class="imagechangebutton imagechangebutton{{ forloop.parentloop.counter }}{{ forloop.counter }} changeleft"></div>
 								<div style="background-image: url('{% static 'main/images/right.png' %}');" class="nextOverlay next{{ forloop.parentloop.counter }}"></div>
 							{% elif image == list.0 and imageSet|first != list %}
+								<div class="imagechangebutton imagechangebutton{{ forloop.parentloop.counter }}{{ forloop.counter }} changeright"></div>
 								<div style="background-image: url('{% static 'main/images/left.png' %}');" class="prevOverlay prev{{ forloop.parentloop.counter }}"></div>
+							{% else %}
+								<div class="imagechangebutton imagechangebutton{{ forloop.parentloop.counter }}{{ forloop.counter }} changeboth"></div>
 							{% endif %}
 						</div>
 						{% endfor %}
