@@ -3,14 +3,16 @@
 {% block head %}
 <link rel="stylesheet" type ="text/css" href="{% static 'main/product.css' %}">
 <script>
-{% for list in imageSet %}
-	{% for image in list %}
-		function changeImage{{ forloop.parentloop.counter }}{{ forloop.counter }}()
-		{
-			document.getElementById("previewImage{{ forloop.parentloop.counter }}{{ forloop.counter }}").src="{{ image.url }}"
-		}
+$(document).ready(function () {
+	{% for list in imageSet %}
+		{% for image in list %}
+			function changeImage{{ forloop.parentloop.counter }}{{ forloop.counter }}()
+			{
+				document.getElementById("previewImage{{ forloop.parentloop.counter }}{{ forloop.counter }}").src="{{ image.url }}"
+			}
+			{% endfor %}
 		{% endfor %}
-	{% endfor %}
+}
 </script>
 <style>
 {% for list in imageSet %}
@@ -30,10 +32,10 @@
 						{% for image in list %}
 						<div class="{% if image == list.0 %}{% if list != imageSet.0 %}first{% endif %}{% endif %}{% if image == list.3 %}last{% endif %} previewimage">
 							<img style="height:100%; width:100%;" src="{{ image.url }}">
-							{% if image == list.3 %}
-							<div class="nextOverlay">
-
-							</div>
+							{% if image == list.3 and imageSet|last != list %}
+								<div style="background-image: url('{% static 'main/images/right.png' %}');" class="nextOverlay next{{ forloop.parentloop.counter }}"></div>
+							{% elif image == list.0 and imageSet|first != list %}
+								<div style="background-image: url('{% static 'main/images/left.png' %}');" class="prevOverlay prev{{ forloop.parentloop.counter }}"></div>
 							{% endif %}
 						</div>
 						{% endfor %}
