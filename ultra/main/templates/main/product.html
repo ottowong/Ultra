@@ -5,9 +5,6 @@
 <script src="{% static 'main/jquery.min.js' %}"></script>
 <script>
 $(document).ready(function () {
-
-
-
 	{% for list in imageSet %}
 	$(".next{{ forloop.counter }}").click(function(){
 		$(".preview{{ forloop.counter|add:"1" }}").show();
@@ -17,6 +14,15 @@ $(document).ready(function () {
 		$(".preview{{ forloop.counter|add:"-1" }}").show();
 		$(".preview{{ forloop.counter }}").hide();
 	});
+	{% endfor %}
+
+	{% for list in imageSet %}
+		{% for image in list %}
+	$(".previewImage{{ forloop.parentloop.counter }}{{ forloop.counter }}").click(function(){
+		$(".itemimage").attr("src", "{{ image.url }}")
+
+	});
+		{% endfor %}
 	{% endfor %}
 });
 </script>
@@ -36,7 +42,7 @@ $(document).ready(function () {
 					<div id="previews" class="preview{{ forloop.counter }}">
 
 						{% for image in list %}
-						<div class="{% if image == list.0 %}{% if list != imageSet.0 %}first{% endif %}{% endif %}{% if image == list.3 %}last{% endif %} previewimage">
+						<div class="{% if image == list.0 %}{% if list != imageSet.0 %}first{% endif %}{% endif %}{% if image == list.3 %}last{% endif %} previewimage previewImage{{ forloop.parentloop.counter }}{{ forloop.counter }}">
 							<img style="height:100%; width:100%;" src="{{ image.url }}">
 							{% if image == list.3 and imageSet|last != list %}
 								<div style="background-image: url('{% static 'main/images/right.png' %}');" class="nextOverlay next{{ forloop.parentloop.counter }}"></div>
