@@ -2,21 +2,27 @@
 {% load static %}
 {% block head %}
 <link rel="stylesheet" type ="text/css" href="{% static 'main/product.css' %}">
+<script src="{% static 'main/jquery.min.js' %}"></script>
 <script>
 $(document).ready(function () {
+
+
+
 	{% for list in imageSet %}
-		{% for image in list %}
-			function changeImage{{ forloop.parentloop.counter }}{{ forloop.counter }}()
-			{
-				document.getElementById("previewImage{{ forloop.parentloop.counter }}{{ forloop.counter }}").src="{{ image.url }}"
-			}
-			{% endfor %}
-		{% endfor %}
-}
+	$(".next{{ forloop.counter }}").click(function(){
+		$(".preview{{ forloop.counter|add:"1" }}").show();
+		$(".preview{{ forloop.counter }}").hide();
+	});
+	$(".prev{{ forloop.counter }}").click(function(){
+		$(".preview{{ forloop.counter|add:"-1" }}").show();
+		$(".preview{{ forloop.counter }}").hide();
+	});
+	{% endfor %}
+});
 </script>
 <style>
 {% for list in imageSet %}
-.prev{{ forloop.counter }}{
+.preview{{ forloop.counter }}{
 	{% if list != imageSet.0 %}display:none;{% endif %}
 }
 {% endfor %}
@@ -27,7 +33,7 @@ $(document).ready(function () {
 		<div id="itemimg">
         	<img class="itemimage" src="{{ product.image.url }}">
 					{% for list in imageSet %}
-					<div id="previews" class="prev{{ forloop.counter }}">
+					<div id="previews" class="preview{{ forloop.counter }}">
 
 						{% for image in list %}
 						<div class="{% if image == list.0 %}{% if list != imageSet.0 %}first{% endif %}{% endif %}{% if image == list.3 %}last{% endif %} previewimage">
