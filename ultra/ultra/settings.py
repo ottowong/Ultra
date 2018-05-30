@@ -1,4 +1,4 @@
-# python manage.py collectstatic - when debug = false
+# python manage.py collectstatic  - when debug = false
 """
 Django settings for ultra project.
 
@@ -123,6 +123,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'main/static'),
     ]
