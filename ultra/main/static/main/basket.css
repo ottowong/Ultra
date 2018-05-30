@@ -15,7 +15,9 @@
 	text-align: left;
 	vertical-align: middle;
 	display:block;
+	height:100px;
 }
+
 h3{
 	display: inline;
 }
@@ -23,8 +25,10 @@ h3{
 .itemdescription{
 	margin-left:10px;
 	font-size: 20px;
-	line-height: 100px;
+	/* line-height: 100px; */
 	display: inline;
+	/* padding:10px; */
+	float:left;
 }
 
 .itemimage{
@@ -37,4 +41,18 @@ h3{
 	float:right;
 	line-height: 100px;
 	display:inline;
+}
+
+ul{
+	list-style-type: none;
+	margin:0;
+	padding:0;
+}
+
+#total{
+	float:right;
+}
+
+#paypal-button-container{
+	float:right;
 }

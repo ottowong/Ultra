@@ -102,6 +102,7 @@ def login(request):
     return render(request, "main/login.html", context)
 
 def basket(request):
+    total = 0
     if "basket" in request.session:
         basketlength = len(request.session["basket"])
         basket = request.session["basket"]
@@ -110,6 +111,7 @@ def basket(request):
         print(productsinbasket)
         for i in range(0, len(basket)):
             productsinbasket[i] = [(Product.objects.get(pk = basket[i][0])), basket[i][1], (Colour.objects.get(pk = basket[i][2]))]
+            total += Product.objects.get(pk = basket[i][0]).price
         print(productsinbasket)
     else:
         basketlength = 0
@@ -118,6 +120,7 @@ def basket(request):
     
     context = {
         'basketlength': basketlength,
+        'total': total,
     }
 
     if "basket" in request.session:
