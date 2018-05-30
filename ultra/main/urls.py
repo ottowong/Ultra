@@ -17,4 +17,5 @@ urlpatterns = [
     path(r'social', views.social, name="social"),
     path(r'register', views.register, name="register"),
     path(r'logmein', views.logmein, name="logmein"),
+    path(r'removefrombasket/<int:basketId>', views.removefrombasket, name="removefrombasket"),
 ]

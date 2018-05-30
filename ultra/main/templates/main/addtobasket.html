@@ -1,11 +1,10 @@
-<!-- <meta http-equiv="refresh" content="0; url=/" /> -->
 {% extends 'main/base.html' %}
 {% load static %}
 {% block head %}
+<link rel="stylesheet" type ="text/css" href="/static/main/addtobasket.css">
 {% endblock %}
 {% block content %}
-	<div id="storecontent">
-            {{ size }}
-            {{ colour }}
+	<div id="content">
+            success! You can <a href="/">continue shopping</a> or <a href="/basket">check out</a>.
 	</div>
 {% endblock %}

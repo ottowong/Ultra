@@ -3,11 +3,16 @@ from django.shortcuts import render, get_object_or_404
 
 from .models import Product, Type, ProductImage, ProductColour, Colour
 
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 
 import math
 
 def index(request):
+    if "basket" in request.session:
+        basketlength = len(request.session["basket"])
+    else:
+        basketlength = 0
+
     print(Product.objects.get(pk = 3))
     productList = Product.objects.order_by("-pk")[:12]
     typeList = Type.objects.order_by("-pk")
@@ -18,10 +23,16 @@ def index(request):
     context = {
         'product2List': product2List,
         'typeList' : typeList,
+        'basketlength': basketlength,
     }
     return render(request, "main/index.html", context)
 
 def product(request, productId):
+    if "basket" in request.session:
+        basketlength = len(request.session["basket"])
+    else:
+        basketlength = 0
+
     product = get_object_or_404(Product, pk=productId)
     images = ProductImage.objects.filter(productId = productId)
     imageList = []
@@ -55,6 +66,7 @@ def product(request, productId):
         'product': product,
         'imageSet': imageSet,
         'colours': colours,
+        'basketlength': basketlength,
     }
     return render(request, "main/product.html", context)
 
@@ -66,11 +78,18 @@ def addtobasket(request, productId):
     else:
         request.session["basket"] = [[productId,size,colour]]
 
+    if "basket" in request.session:
+        basketlength = len(request.session["basket"])
+    else:
+        basketlength = 0
+
     print(request.session["basket"])
 
     context = {
         'size': size,
         'colour': colour,
+        'basketlength': basketlength,
+        'productId': productId,
     }
     return render(request, "main/addtobasket.html", context)
 
@@ -83,12 +102,49 @@ def login(request):
     return render(request, "main/login.html", context)
 
 def basket(request):
-    basket = request.session["basket"]
-    print(basket)
+    if "basket" in request.session:
+        basketlength = len(request.session["basket"])
+        basket = request.session["basket"]
+        print(basket)
+        productsinbasket = [[] * 3 for i in range(len(basket))]
+        print(productsinbasket)
+        for i in range(0, len(basket)):
+            productsinbasket[i] = [(Product.objects.get(pk = basket[i][0])), basket[i][1], (Colour.objects.get(pk = basket[i][2]))]
+        print(productsinbasket)
+    else:
+        basketlength = 0
+
+    
+    
     context = {
-        'basket': basket
+        'basketlength': basketlength,
     }
+
+    if "basket" in request.session:
+        context['basket'] = productsinbasket
+
     return render(request, "main/basket.html", context)
+
+def removefrombasket(request, basketId):
+    try:
+        hi = request.session["basket"]
+        del hi[basketId-1]
+        print("hi")
+        print(hi)
+        print("hi")
+        request.session["basket"] = hi
+    except:
+        raise Http404("Something went wrong")
+
+    if "basket" in request.session:
+        basketlength = len(request.session["basket"])
+    else:
+        basketlength = 0
+
+    context = {
+        "basketlength": basketlength,
+    }
+    return HttpResponseRedirect("/basket")
 
 def contact(request):
     context = {}

@@ -5,8 +5,16 @@
 {% endblock %}
 {% block content %}
 	<div id="basketcontent">
-		{% for item in basket %}
-			{{ item }}<br>
-		{% endfor %}
+		{% if basketlength == 0 %}
+			Your basket is empty!
+		{% else %}
+			{% for item in basket %}
+			<div class="basketitem">
+				<a href="/products/{{ item.0.pk }}"><img class="itemimage" src="{{ item.0.image.url }}">
+				<div class="itemdescription">{{ item.0 }}, {{ item.1 }}, {{ item.2 }}</a></div>
+				<div class="remove"><a href="/removefrombasket/{{ forloop.counter }}">Remove from basket <i class="fas fa-minus-square"></i></a></div>
+			</div>
+			{% endfor %}
+		{% endif %}
 	</div>
 {% endblock %}

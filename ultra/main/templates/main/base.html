@@ -18,7 +18,7 @@
 			<div id="menu">
 				<a href="/admin"><i class="fas fa-user-cog"></i>
 					{% if user.is_authenticated %} 
-					{% firstof user.get_short_name user.get_username %}</a> <a href="/admin/logout"><i class="fas fa-sign-out-alt"></i> Logout{% else %} Login{% endif %}</a> <a href="/basket"><i class="fas fa-shopping-cart"></i> 0</a>
+					{% firstof user.get_short_name user.get_username %}</a> <a href="/admin/logout"><i class="fas fa-sign-out-alt"></i> Logout{% else %} Login{% endif %}</a> <a href="/basket"><i class="fas fa-shopping-cart"></i> {{ basketlength }}</a>
 			</div>
 		</div>
 
