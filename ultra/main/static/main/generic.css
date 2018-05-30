@@ -1,0 +1,27 @@
+#content{
+	text-align: center;
+	position: block;
+	margin-left: calc(50% - 600px);
+	height:400px;
+	width:1200px;
+	margin-top:60px;
+	padding-top:50px;
+	/* padding-bottom:50px; */
+}
+
+ul{
+	list-style: none;
+}
+
+a{
+	color:#828282;
+}
+
+a:hover{
+	color:#c9c9c9;
+}
+
+h1{
+	width:100%;
+	text-align: center;
+}

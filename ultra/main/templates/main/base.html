@@ -17,7 +17,7 @@
 			</div>
 			<div id="menu">
 				<a href="/admin"><i class="fas fa-user-cog"></i>
-					{% if user.is_authenticated %} 
+					{% if user.is_authenticated %}
 					{% firstof user.get_short_name user.get_username %}</a> <a href="/admin/logout"><i class="fas fa-sign-out-alt"></i> Logout{% else %} Login{% endif %}</a> <a href="/basket"><i class="fas fa-shopping-cart"></i> {{ basketlength }}</a>
 			</div>
 		</div>
@@ -26,7 +26,7 @@
 {% endblock %}
 
 		<div id="footer">
-			<a href="/shipping">shipping</a> | <a href="/contact">contact</a> | <a href="/social">social</a>
+			<a href="/shipping">shipping</a> | <a href="/contact">contact</a> | <a href="https://facebook.com">facebook</a> | <a href="https://twitter.com">twitter</a>
 		</div>
 	</body>
 </html>

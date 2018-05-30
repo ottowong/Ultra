@@ -116,8 +116,8 @@ def basket(request):
     else:
         basketlength = 0
 
-    
-    
+
+
     context = {
         'basketlength': basketlength,
         'total': total,
@@ -130,12 +130,10 @@ def basket(request):
 
 def removefrombasket(request, basketId):
     try:
-        hi = request.session["basket"]
-        del hi[basketId-1]
-        print("hi")
-        print(hi)
-        print("hi")
-        request.session["basket"] = hi
+        currentbasket = request.session["basket"]
+        del currentbasket[basketId-1]
+        print(currentbasket)
+        request.session["basket"] = currentbasket
     except:
         raise Http404("Something went wrong")
 
@@ -150,35 +148,45 @@ def removefrombasket(request, basketId):
     return HttpResponseRedirect("/basket")
 
 def contact(request):
-    context = {}
+    if "basket" in request.session:
+        basketlength = len(request.session["basket"])
+    else:
+        basketlength = 0
+
+    context = {
+        'basketlength': basketlength,
+    }
     return render(request, "main/contact.html", context)
 
 def shipping(request):
-    context = {}
+    if "basket" in request.session:
+        basketlength = len(request.session["basket"])
+    else:
+        basketlength = 0
+
+    context = {
+        'basketlength': basketlength,
+    }
     return render(request, "main/shipping.html", context)
 
-def social(request):
-    context = {}
-    return render(request, "main/social.html", context)
-
-def register(request):
-    context = {}
-    if request.method == "POST":
-        template = "main/register.html"
-        form = ContactForm(request.POST)
-        print("FORM")
-        print(form.cleaned_data)
-        if form.is_valid():
-            print("NICE")
-            print(form.cleaned_data)
-            context = {
-                'form' : form
-            }
-    else:
-        template = "main/login.html"
-    return render(request, template, context)
-
-def logmein(request):
-    template = loader.get_template("main/logmein.html")
-    context = {}
-    return HttpResponse(template.render(context,request))
+# def register(request):
+#     context = {}
+#     if request.method == "POST":
+#         template = "main/register.html"
+#         form = ContactForm(request.POST)
+#         print("FORM")
+#         print(form.cleaned_data)
+#         if form.is_valid():
+#             print("NICE")
+#             print(form.cleaned_data)
+#             context = {
+#                 'form' : form
+#             }
+#     else:
+#         template = "main/login.html"
+#     return render(request, template, context)
+#
+# def logmein(request):
+#     template = loader.get_template("main/logmein.html")
+#     context = {}
+#     return HttpResponse(template.render(context,request))

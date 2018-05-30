@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type ="text/css" href="{% static 'main/generic.css' %}">
+{% endblock %}
+{% block content %}
+	<div id="content">
+		<h1>Shipping</h1>
+		We will usually ship within 5-7 business days
+		<br><br>Shipping prices per item are as follows:
+		<ul>
+			<li>UK: £3</li>
+			<li>Europe: £5</li>
+			<li>Other: £10 </li>
+		</ul>
+	</div>
+{% endblock %}
