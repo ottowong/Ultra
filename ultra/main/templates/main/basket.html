@@ -78,7 +78,7 @@
 								"items": [
 									{% for item in basket %}
 									{
-										"name": "{{ item.0.name }}",
+										"name": "{{ item.0.name }} {{ item.0.typeId }}",
 										"description": "{{ item.1 }} {{ item.2 }} {{ item.0.name }} {{ item.0.typeId }}; {{ item.0.description }}",
 										"quantity": "1",
 										"price": "{{ item.0.price }}",
