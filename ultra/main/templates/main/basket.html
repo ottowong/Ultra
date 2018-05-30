@@ -1,0 +1,12 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type ="text/css" href="{% static 'main/basket.css' %}">
+{% endblock %}
+{% block content %}
+	<div id="basketcontent">
+		{% for item in basket %}
+			{{ item }}<br>
+		{% endfor %}
+	</div>
+{% endblock %}

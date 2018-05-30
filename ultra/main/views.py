@@ -1,11 +1,14 @@
 from django.shortcuts import render, get_object_or_404
 # Create your views here.
 
-from .models import Product, Type, ProductImage
+from .models import Product, Type, ProductImage, ProductColour, Colour
+
+from django.http import HttpResponse
 
 import math
 
 def index(request):
+    print(Product.objects.get(pk = 3))
     productList = Product.objects.order_by("-pk")[:12]
     typeList = Type.objects.order_by("-pk")
     product2List = []
@@ -38,11 +41,38 @@ def product(request, productId):
             newImage = imageList.pop()
             imageSet[i].append(newImage)
 
+
+    productColours = ProductColour.objects.filter(productId = productId)
+
+    colours = []
+    for i in range(0, len(productColours)):
+        colours.append(productColours[i].colourId)
+
+
+
+
     context = {
         'product': product,
         'imageSet': imageSet,
+        'colours': colours,
     }
     return render(request, "main/product.html", context)
+
+def addtobasket(request, productId):
+    size = request.POST.get('size', 'medium')
+    colour = int(request.POST.get('colour', 'black'))
+    if "basket" in request.session:
+        request.session["basket"] += [[productId,size,colour]]
+    else:
+        request.session["basket"] = [[productId,size,colour]]
+
+    print(request.session["basket"])
+
+    context = {
+        'size': size,
+        'colour': colour,
+    }
+    return render(request, "main/addtobasket.html", context)
 
 def bob(request):
     context={}
@@ -52,9 +82,13 @@ def login(request):
     context = {}
     return render(request, "main/login.html", context)
 
-def cart(request):
-    context = {}
-    return render(request, "main/cart.html", context)
+def basket(request):
+    basket = request.session["basket"]
+    print(basket)
+    context = {
+        'basket': basket
+    }
+    return render(request, "main/basket.html", context)
 
 def contact(request):
     context = {}

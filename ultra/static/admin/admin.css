@@ -1,0 +1,59 @@
+#header {
+    background-color: #000;
+    height:80px;
+    padding:0;
+    padding-right:20px;
+}
+ 
+#logo{
+  height:70px;
+  padding:5px;
+    display:inline;
+}
+ 
+@media (max-width:585px) {
+  #logo{
+    height:auto;
+    width:calc( 100% - 250px );
+  }
+}
+ 
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background-color: #000;
+}
+ 
+.module h2, .module caption, .inline-group h2 {
+    margin: 0;
+    padding: 8px;
+    font-weight: 400;
+    font-size: 13px;
+    text-align: left;
+    background: #000;
+    color: #fff;
+}
+ 
+div.breadcrumbs {
+    background: #fff;
+    padding: 10px 40px;
+    border: none;
+    font-size: 14px;
+    color: #c9c9c9;
+    text-align: left;
+}
+ 
+div.breadcrumbs a {
+    color: #828282;
+}
+ 
+div.breadcrumbs a:focus, div.breadcrumbs a:hover {
+    color: #c9c9c9;
+}
+ 
+#user-tools a:focus, #user-tools a:hover {
+    text-decoration: none;
+    border-bottom-color: #828282;
+    color: #c9c9c9;
+}
+ 
+ 
+ 
