@@ -14,6 +14,7 @@ urlpatterns = [
     path(r'basket', views.basket, name="basket"),
     path(r'contact', views.contact, name="contact"),
     path(r'shipping', views.shipping, name="shipping"),
+    path(r'paid', views.paid, name="paid"),
     # path(r'social', views.social, name="social"),
     # path(r'register', views.register, name="register"),
     # path(r'logmein', views.logmein, name="logmein"),

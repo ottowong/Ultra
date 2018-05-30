@@ -169,6 +169,18 @@ def shipping(request):
     }
     return render(request, "main/shipping.html", context)
 
+def paid(request):
+    del request.session["basket"]
+    if "basket" in request.session:
+        basketlength = len(request.session["basket"])
+    else:
+        basketlength = 0
+
+    context = {
+        'basketlength': basketlength,
+    }
+    return render(request, "main/paid.html", context)
+
 # def register(request):
 #     context = {}
 #     if request.method == "POST":
