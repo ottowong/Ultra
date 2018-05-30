@@ -1,0 +1,15 @@
+{% extends 'admin/base.html' %}
+
+{% load static %}
+
+{% block branding %}
+<div id="logocontainer">
+    <a href="/"><img id="logo" src="{% static 'main/images/reddoveULTRA.png' %}"></a>
+</div>
+{% endblock %}
+
+{% block extrastyle %}
+<link rel="stylesheet" type ="text/css" href="{% static '/admin/admin.css' %}">
+{% endblock %}
+
+

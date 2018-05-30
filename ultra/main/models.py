@@ -7,7 +7,7 @@ class Type(models.Model):
         return self.name
 
 class Product(models.Model):
-    typeId = models.ForeignKey(Type, on_delete=models.PROTECT)
+    typeId = models.ForeignKey(Type, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
     colour = models.CharField(max_length=200)
@@ -17,7 +17,7 @@ class Product(models.Model):
         return self.name
 
 class ProductImage(models.Model):
-    productId = models.ForeignKey(Product, on_delete=models.PROTECT)
+    productId = models.ForeignKey(Product, on_delete=models.CASCADE)
     image = models.FileField(upload_to="images/productImages/")
     # def __str__(self):
     #     return self.str(productId)
