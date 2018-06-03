@@ -61,7 +61,15 @@ body{
 }
 
 .item:hover .overlay {
-  opacity: 1;
+  opacity: .8;
+}
+
+.item .overlaytext{
+	transition: padding-bottom .3s;
+}
+
+.item:hover .overlaytext {
+  	padding-bottom:20px;
 }
 
 .overlaytext {
