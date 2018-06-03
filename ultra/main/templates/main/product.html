@@ -66,14 +66,14 @@ $(document).ready(function () {
 			<br><br><br>
 			<form method="POST" action = "/products/{{ product.pk }}/addtobasket">
 				{% csrf_token %}
-				
-				<select label="size" name="size">
+				<label for="size">size:</label>
+				<select id="size" name="size">
 					<option value="small">Small</option>
 					<option selected="selected" value="medium">Medium</option>
 					<option value="large">large</option>
 				</select>
-				
-				<select label="colour:" name="colour">
+				<label for="colour">colour:</label>
+				<select id="colour" name="colour">
 					{% for colour in colours %}
 					<option value="{{ colour.pk }}">{{ colour.name }}</option>
 					{% endfor %}
