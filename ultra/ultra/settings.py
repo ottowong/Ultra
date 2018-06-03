@@ -26,7 +26,7 @@ SECRET_KEY = '7ob$f&$#_o9@3*$m#+7-b(5!8!jt%4pztki2ge_mq+%5^%m&*x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sadlads.com','it4b.totallynotavirus.biz','localhost','aws.totallynotavirus.biz']
+ALLOWED_HOSTS = ['sadlads.com','it4b.totallynotavirus.biz','localhost','aws.totallynotavirus.biz','*']
 
 
 # Application definition
