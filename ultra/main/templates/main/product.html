@@ -43,7 +43,7 @@ $(document).ready(function () {
 
 						{% for image in list %}
 						<div class="{% if image == list.0 %}{% if list != imageSet.0 %}first{% endif %}{% endif %}{% if image == list.3 %}last{% endif %} previewimage previewImage{{ forloop.parentloop.counter }}{{ forloop.counter }}">
-							<img style="height:100%; width:100%;" src="{{ image.url }}" alt="thumbnail{{ forloop.parentloop.counter }}">
+							<img style="height:100%; width:100%;" src="{{ image.url }}" alt="thumbnail {{ forloop.parentloop.counter }}, {{ forloop.counter }}">
 							{% if image == list.3 and imageSet|last != list %}
 								<div class="imagechangebutton imagechangebutton{{ forloop.parentloop.counter }}{{ forloop.counter }} changeleft"></div>
 								<div style="background-image: url('{% static 'main/images/right.png' %}');" class="nextOverlay next{{ forloop.parentloop.counter }}"></div>
