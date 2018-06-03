@@ -9,6 +9,7 @@
 {% endblock %}
 {% block content %}
 	<div id="basketcontent">
+		<h2>Basket</h2>
 		{% if basketlength == 0 %}
 			Your basket is empty!
 		{% else %}
@@ -88,9 +89,7 @@
 					}
 				});
 				},
-	   
-	   
-	   
+
 				// onAuthorize() is called when the buyer approves the payment
 				onAuthorize: function(data, actions) {
 	   
